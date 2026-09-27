@@ -1,0 +1,133 @@
+{
+  "app_name": "OpenGrox Command Droid",
+  "personality": "7 Dark-First Utility",
+  "personality_one_liner": "A high-tech, tactical droid command cockpit emphasizing operational clarity, monospace telemetry, and neon-green cybernetic accents.",
+  "color": {
+    "surface": "#090B0D",
+    "onSurface": "#E5E7EB",
+    "surfaceSecondary": "#111519",
+    "onSurfaceSecondary": "#D1D5DB",
+    "surfaceTertiary": "#1A2026",
+    "onSurfaceTertiary": "#9CA3AF",
+    "surfaceInverse": "#F3F4F6",
+    "onSurfaceInverse": "#090B0D",
+    "brand": "#00FF66",
+    "brandPrimary": "#00FF66",
+    "onBrandPrimary": "#001A0A",
+    "brandSecondary": "#00CC52",
+    "onBrandSecondary": "#001A0A",
+    "brandTertiary": "#1A3324",
+    "onBrandTertiary": "#00FF66",
+    "success": "#00FF66",
+    "onSuccess": "#001A0A",
+    "warning": "#FFB800",
+    "onWarning": "#1A1300",
+    "error": "#FF3333",
+    "onError": "#1A0000",
+    "info": "#4ADE80",
+    "onInfo": "#001A0A",
+    "border": "#212930",
+    "borderStrong": "#33414C",
+    "divider": "#1A2026",
+    "muted": "#6B7280",
+    "onBrand": "#001A0A"
+  },
+  "typography": {
+    "displayFontFamily": "Rajdhani",
+    "textFontFamily": "JetBrains Mono",
+    "scale": {
+      "sm": 12,
+      "base": 14,
+      "lg": 16,
+      "xl": 20,
+      "2xl": 24
+    }
+  },
+  "spacing": {
+    "rule": "Dense, operational layout. Rely on 1px borders and tight padding for an industrial command-center feel.",
+    "xs": 4,
+    "sm": 8,
+    "md": 12,
+    "lg": 16,
+    "xl": 24,
+    "2xl": 32,
+    "3xl": 48
+  },
+  "radius_tokens": {
+    "sm": 2,
+    "md": 4,
+    "lg": 8,
+    "pill": 999
+  },
+  "shadow_tier": "0",
+  "navigation": "stack_only",
+  "icon_set": "Phosphor",
+  "glassmorphism": {
+    "enabled": "false",
+    "do's": [
+      "Use flat surfaces with rigid structural borders to maintain the tactical cockpit look"
+    ],
+    "dont's": [
+      "Avoid blur, frosted glass, or soft UI elements; they weaken the industrial sci-fi aesthetic"
+    ]
+  },
+  "platform_libraries": {
+    "glass": {
+      "ios": "expo-glass-effect",
+      "android": "expo-blur",
+      "low_end_android_fallback": "solid surfaceSecondary"
+    },
+    "image": "expo-image",
+    "blur": "expo-blur",
+    "bottom_sheet": "@gorhom/bottom-sheet",
+    "animation": "react-native-reanimated",
+    "gesture": "react-native-gesture-handler"
+  },
+  "screens": [
+    {
+      "name": "Voice Cockpit",
+      "purpose": "Primary mission-control surface displaying the glowing voice orb, active operations, model selection, and execution results.",
+      "states": {
+        "loading": "Terminal-style skeleton blocks with flashing cursors",
+        "empty": "Idle state: Orb pulsing softly, 'Awaiting Command...' in a monospace prompt",
+        "error": "Neon red status badge (FAILED) and red-tinted terminal log"
+      },
+      "layout": "Header: Centered Connected-Phone status pill with monospace font. Below header: Model Selector (segmented control) with sharp 4px radius. Center Stage: Large animated, glowing voice orb sitting on a dark textural background. Bottom Third: 'Current action' log with typewriter/terminal styling, a bold STOP button (conditionally visible), and the Verified Result Card with strict badge coloring (Green=VERIFIED, Red=FAILED, Amber=UNKNOWN)."
+    },
+    {
+      "name": "Connect Phone",
+      "purpose": "Settings panel to link the command droid to the physical Android device.",
+      "states": {
+        "loading": "Authenticating/Connecting overlay with a linear progress bar",
+        "empty": "Empty input fields with muted placeholders",
+        "error": "Inline red text indicating connection failure"
+      },
+      "layout": "Industrial form layout. Sharp input fields (1px border, background surfaceSecondary). URL and Bearer Token inputs stacked vertically. Full-width 'Connect / Test' button at the bottom anchored above the keyboard. Monospace labels for a developer-like configuration feel, but abstracted for normal users."
+    }
+  ],
+  "images": {
+    "hero_background": {
+      "url": "https://images.unsplash.com/photo-1649962843028-54905316eb21?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwyfHxzY2klMjBmaSUyMGRhcmslMjB0ZXh0dXJlJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3OTA1MDg5NzR8MA&ixlib=rb-4.1.0&q=85",
+      "dark": "https://images.unsplash.com/photo-1649962843028-54905316eb21?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwyfHxzY2klMjBmaSUyMGRhcmslMjB0ZXh0dXJlJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3OTA1MDg5NzR8MA&ixlib=rb-4.1.0&q=85",
+      "alt": "Dark wavy textured background"
+    }
+  },
+  "haptics": {
+    "events": {
+      "tap_orb": "impactLight",
+      "start_listening": "notificationSuccess",
+      "stop_action": "impactHeavy",
+      "result_verified": "notificationSuccess",
+      "result_failed": "notificationError",
+      "change_model": "selection"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Strictly enforce the '7 Dark-First Utility' personality. Use sharp corners (radius 4px max) and 1px rigid borders (`border` token) to create an aerospace/cybernetic terminal aesthetic.",
+    "Implement the 'Voice Orb' using `react-native-reanimated`. Map distinct visual states (Idle: slow pulse, Listening: reactive scaling, Thinking: rapid spin/pulse, Speaking: rhythmic waves). Avoid relying solely on color changes.",
+    "Use 'JetBrains Mono' for all data, logs, current actions, and status badges to reinforce the developer/tactical vibe.",
+    "For the Verified Result Card, strictly use the defined status colors: `success` (VERIFIED), `error` (FAILED), and `warning` (UNKNOWN). Never fake a success status.",
+    "The STOP control should be prominent and highly visible when active, potentially using the `error` or `warning` palette to stand out as a critical interrupt.",
+    "Use the dark texture background behind the voice orb to add depth, applying a vertical gradient scrim (transparent to surface color) to ensure terminal text readability below."
+  ]
+}
